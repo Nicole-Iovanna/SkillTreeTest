@@ -47,10 +47,6 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MouseLookAction;
 
-public:
-
-	APlayerCharacter();
-
 protected:
 
 	/** Initialize input action bindings */
@@ -63,6 +59,8 @@ protected:
 	void Look(const FInputActionValue& Value);
 
 public:
+
+	APlayerCharacter();
 
 	/** Handles move inputs from either controls or UI interfaces */
 	UFUNCTION(BlueprintCallable, Category = "Input")
