@@ -6,6 +6,7 @@
 #include "BaseCharacter.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "UI/HUDStackWidget.h"
 #include "PlayerCharacter.generated.h"
 
 class USpringArmComponent;
@@ -47,6 +48,14 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Input")
 	UInputAction* MouseLookAction;
 
+	/** Pause Input Action */
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* PauseAction;
+
+	/** HUDStack that will handle UI */
+	UPROPERTY(BlueprintReadWrite)
+	UHUDStackWidget* HUDStack;
+
 protected:
 
 	/** Initialize input action bindings */
@@ -57,6 +66,7 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
+
 
 public:
 
@@ -83,5 +93,11 @@ public:
 
 	/** Returns FollowCamera subobject **/
 	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
-	
+
+	/** Handle pausing and unpausing the game */
+	void PauseGame();
+
+private:
+
+
 };

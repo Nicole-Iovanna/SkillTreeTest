@@ -41,6 +41,9 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &APlayerCharacter::Look);
+
+		// Pausing
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this, &APlayerCharacter::PauseGame);
 	}
 	else
 	{
@@ -106,4 +109,12 @@ void APlayerCharacter::DoJumpEnd()
 {
 	// signal the character to stop jumping
 	StopJumping();
+}
+
+void APlayerCharacter::PauseGame()
+{
+	if (HUDStack)
+	{
+		HUDStack->PausePressed();
+	}
 }
