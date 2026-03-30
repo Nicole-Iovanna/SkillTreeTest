@@ -18,6 +18,7 @@ public class SkillTreeTest : ModuleRules
 			"StateTreeModule",
 			"GameplayStateTreeModule",
 			"UMG",
+			"CommonUI",
 			"Slate",
             "GameplayAbilities",
 			"GameplayTags",

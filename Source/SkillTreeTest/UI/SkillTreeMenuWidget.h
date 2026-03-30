@@ -13,5 +13,6 @@ UCLASS()
 class SKILLTREETEST_API USkillTreeMenuWidget : public UCommonActivatableWidget
 {
 	GENERATED_BODY()
+
 	
 };
